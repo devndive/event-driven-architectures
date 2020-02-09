@@ -1,8 +1,8 @@
 {
-  "name": "workflow-with-step-functions",
+  "name": "sqs-queue-between-api-gateway-and-lambda",
   "version": "0.1.0",
   "bin": {
-    "workflow-with-step-functions": "bin/workflow-with-step-functions.js"
+    "sqs-queue-between-api-gateway-and-lambda": "bin/sqs-queue-between-api-gateway-and-lambda.js"
   },
   "scripts": {
     "build": "tsc",
@@ -11,17 +11,25 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.22.0",
-    "@types/jest": "^24.0.22",
+    "@aws-cdk/assert": "^1.23.0",
+    "@types/jest": "^25.1.2",
     "@types/node": "10.17.5",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0",
-    "aws-cdk": "^1.22.0",
+    "aws-cdk": "^1.23.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.0",
     "ts-node": "^8.1.0",
     "typescript": "~3.7.2"
   },
   "dependencies": {
-    "@aws-cdk/core": "^1.22.0",
+    "@aws-cdk/aws-apigateway": "^1.23.0",
+    "@aws-cdk/aws-dynamodb": "^1.23.0",
+    "@aws-cdk/aws-iam": "^1.23.0",
+    "@aws-cdk/aws-lambda": "^1.23.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.23.0",
+    "@aws-cdk/aws-sqs": "^1.23.0",
+    "@aws-cdk/aws-stepfunctions": "^1.23.0",
+    "@aws-cdk/aws-stepfunctions-tasks": "^1.23.0",
+    "@aws-cdk/core": "^1.23.0",
     "source-map-support": "^0.5.16"
   }
 }
