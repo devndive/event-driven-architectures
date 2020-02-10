@@ -1,4 +1,4 @@
-import { Construct } from "@aws-cdk/core";
+import { Construct, RemovalPolicy } from "@aws-cdk/core";
 import { Table, AttributeType } from "@aws-cdk/aws-dynamodb";
 
 export class OrderStorage extends Construct {
@@ -11,7 +11,10 @@ export class OrderStorage extends Construct {
             partitionKey: {
                 name: "messageId",
                 type: AttributeType.STRING
-            }
+            },
+            readCapacity: 1,
+            writeCapacity: 1,
+            removalPolicy: RemovalPolicy.DESTROY
         });
     }
 }
