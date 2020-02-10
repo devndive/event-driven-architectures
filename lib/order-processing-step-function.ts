@@ -57,6 +57,8 @@ export class OrderProcessingStepFunction extends Construct {
                 ORDERS_TABLE_NAME: props.orderStorageTable.tableName,
             }
         });
+        
+        props.orderStorageTable.grantWriteData(updateOrderFunction);
 
         const saveOrderJob = new Task(this, 'Save order job', {
             task: new InvokeFunction(saveOrderFunction),
@@ -86,8 +88,8 @@ export class OrderProcessingStepFunction extends Construct {
         const stepFunctionDefinition = saveOrderJob
             .next(processPaymentJob)
             .next(new Choice(this, 'Payment successful?')
-                .when(Condition.stringEquals('$.order.paymentStatus', 'SUCCEEDED'), sendOrderJob)
-                .when(Condition.stringEquals('$.order.paymentStatus', 'FAILED'), paymentFailureJob)
+                .when(Condition.stringEquals('$.paymentStatus', 'SUCCEEDED'), sendOrderJob)
+                .when(Condition.stringEquals('$.paymentStatus', 'FAILED'), paymentFailureJob)
                 .otherwise(paymentFailureJob)
                 .afterwards().next(updateOrderJob)
             );
