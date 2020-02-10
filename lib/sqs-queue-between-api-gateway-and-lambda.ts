@@ -27,7 +27,7 @@ export class SqsQueueBetweenAPIGatewayAndLambda extends Stack {
 
     saveOrderLambda.addEventSource(new SqsEventSource(incommingOrdersQueue))
 
-    orderStorage.table.grantReadWriteData(saveOrderLambda);
+    orderStorage.table.grantWriteData(saveOrderLambda);
 
     const onlineSalesApi = new RestApi(this, "online-sales-api", {
       restApiName: "Online Sales API",
