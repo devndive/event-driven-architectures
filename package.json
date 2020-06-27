@@ -11,25 +11,26 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.23.0",
-    "@types/jest": "^25.1.2",
-    "@types/node": "10.17.5",
-    "aws-cdk": "^1.23.0",
-    "jest": "^25.1.0",
-    "ts-jest": "^25.2.0",
-    "ts-node": "^8.1.0",
-    "typescript": "~3.7.2"
+    "@aws-cdk/assert": "^1.47.0",
+    "@types/jest": "^26.0.3",
+    "@types/node": "14.0.14",
+    "aws-cdk": "^1.47.0",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
+    "ts-node": "^8.10.2",
+    "typescript": "~3.9.5"
   },
   "dependencies": {
-    "@aws-cdk/aws-apigateway": "^1.23.0",
-    "@aws-cdk/aws-dynamodb": "^1.23.0",
-    "@aws-cdk/aws-iam": "^1.23.0",
-    "@aws-cdk/aws-lambda": "^1.23.0",
-    "@aws-cdk/aws-lambda-event-sources": "^1.23.0",
-    "@aws-cdk/aws-sqs": "^1.23.0",
-    "@aws-cdk/aws-stepfunctions": "^1.23.0",
-    "@aws-cdk/aws-stepfunctions-tasks": "^1.23.0",
-    "@aws-cdk/core": "^1.23.0",
-    "source-map-support": "^0.5.16"
+    "@aws-cdk/aws-apigateway": "^1.47.0",
+    "@aws-cdk/aws-apigatewayv2": "^1.47.0",
+    "@aws-cdk/aws-dynamodb": "^1.47.0",
+    "@aws-cdk/aws-iam": "^1.47.0",
+    "@aws-cdk/aws-lambda": "^1.47.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.47.0",
+    "@aws-cdk/aws-sqs": "^1.47.0",
+    "@aws-cdk/aws-stepfunctions": "^1.47.0",
+    "@aws-cdk/aws-stepfunctions-tasks": "^1.47.0",
+    "@aws-cdk/core": "^1.47.0",
+    "source-map-support": "^0.5.19"
   }
 }
