@@ -1,4 +1,4 @@
-import { Construct, Resource } from "@aws-cdk/core";
+import { Construct } from "@aws-cdk/core";
 import { RestApi, EndpointType, AwsIntegration, PassthroughBehavior, Resource as ApiGwResource } from "@aws-cdk/aws-apigateway";
 import { PolicyStatement, Effect, PolicyDocument, Role, ServicePrincipal } from "@aws-cdk/aws-iam";
 import { Queue } from "@aws-cdk/aws-sqs";
@@ -62,7 +62,7 @@ export class RestApiWithIncommingQueue extends Construct {
                         selectionPattern: "200",
                         statusCode: "200",
                         responseTemplates: {
-                            "application/json": '{ messageId: $input.json("$.SendMessageResponse.SendMessageResult.MessageId") }'
+                            "application/json": '{ "messageId": $input.json("$.SendMessageResponse.SendMessageResult.MessageId") }'
                         }
                     }
                 ],

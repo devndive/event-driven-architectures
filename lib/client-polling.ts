@@ -4,6 +4,7 @@ import { OrderProcessingStepFunction } from "./order-processing-step-function";
 import { Code, Runtime, Function } from "@aws-cdk/aws-lambda";
 import { RestApiWithIncommingQueue } from "./rest-api-with-incomming-queue";
 import { LambdaIntegration } from "@aws-cdk/aws-apigateway";
+import { WebSocketApi } from "./websocket-api";
 
 export class ClientPolling extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -42,11 +43,10 @@ export class ClientPolling extends Stack {
 
     orderStorage.table.grantReadData(getStatusFunction);
 
-    const getStatusIntegration = new LambdaIntegration(getStatusFunction,  {
-        
-    });
+    const getStatusIntegration = new LambdaIntegration(getStatusFunction, {});
 
-    restApi.ordersResource.addMethod("GET", getStatusIntegration, {
-    });
+    const orderIdResource = restApi.ordersResource.addResource("{orderId}");
+    const getOrderStatus = orderIdResource.addResource("status");
+    getOrderStatus.addMethod("GET", getStatusIntegration);
   }
 }
